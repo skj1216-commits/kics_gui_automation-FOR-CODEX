@@ -1,0 +1,123 @@
+{
+  "document_url": "http://internal-doc-site/document-detail-url",
+  "admin_url": "http://internal-admin-site/user-permission-url",
+  "storage_state": "auth.json",
+  "timeout_ms": 10000,
+  "headless": false,
+  "slow_mo_ms": 100,
+  "dry_run_default": true,
+  "require_final_confirmation_default": true,
+  "close_browser_after_run": false,
+  "document_selectors": {
+    "user_id": "",
+    "user_name": "",
+    "request_text": "body"
+  },
+  "fallback_regex": {
+    "user_id": [
+      "(?:아이디|ID|사용자\\s*ID|계정명?|KICS\\s*ID|사번)\\s*[:：=\\-]?\\s*([A-Za-z][A-Za-z0-9._-]{3,})",
+      "\\b([A-Za-z][A-Za-z0-9._-]{5,})\\b"
+    ],
+    "user_name": [
+      "(?:성명|이름|사용자명|신청자|요청자)\\s*[:：=\\-]?\\s*([가-힣]{2,5})"
+    ]
+  },
+  "permission_map": {
+    "통합사건검색": [
+      "통합사건검색 사건진행내사"
+    ],
+    "판결문조회": [
+      "판결문조회"
+    ],
+    "수용정보조회": [
+      "수용정보조회"
+    ],
+    "기록관리시스템": [
+      "기록보존 사용자"
+    ]
+  },
+  "admin_selectors": {
+    "user_id_input": "#userId",
+    "search_button": "#searchBtn",
+    "search_result_wait": "text={user_id}",
+    "open_permission_button": "#openPermissionButton",
+    "permission_iframe": "",
+    "permission_row_by_text": "tr:has-text('{permission}')",
+    "permission_select_button_inside_row": "button, input[type='button'], .btn",
+    "permission_confirm_button": "text=확인",
+    "final_approve_button": "#approveBtn",
+    "expected_success_text": ""
+  },
+  "flexible_extraction": {
+    "user_id_labels": [
+      "아이디",
+      "ID",
+      "사용자 ID",
+      "사용자ID",
+      "계정",
+      "계정명",
+      "KICS ID",
+      "KICSID",
+      "사번"
+    ],
+    "user_name_labels": [
+      "성명",
+      "이름",
+      "사용자명",
+      "신청자",
+      "요청자"
+    ],
+    "request_text_labels": [
+      "요청사항",
+      "업무사항",
+      "사용권한",
+      "권한",
+      "신청권한",
+      "요청 권한"
+    ],
+    "user_id_value_pattern": "[A-Za-z][A-Za-z0-9._-]{3,}",
+    "user_name_value_pattern": "[가-힣]{2,5}",
+    "request_text_value_pattern": ".{2,120}"
+  },
+  "permission_aliases": {
+    "통합사건검색": [
+      "통합 사건 검색",
+      "통합사건 검색",
+      "사건검색"
+    ],
+    "판결문조회": [
+      "판결문 조회",
+      "판결문"
+    ],
+    "수용정보조회": [
+      "수용 정보 조회",
+      "수용정보"
+    ],
+    "기록관리시스템": [
+      "기록 관리 시스템",
+      "기록관리"
+    ]
+  },
+  "watch": {
+    "list_url": "http://internal-doc-site/document-list-url",
+    "scan_interval_seconds": 30,
+    "document_item_selector": "tr",
+    "document_link_selector": "a",
+    "document_link_attribute": "href",
+    "document_title_selector": "",
+    "document_key_selector": "",
+    "document_key_attribute": "",
+    "request_title_keywords": [
+      "KICS 사용권한 부여 요청",
+      "사용권한 부여 요청"
+    ],
+    "processed_state_path": "processed_documents.json",
+    "max_items_per_scan": 100,
+    "process_one_per_scan": true,
+    "auto_retry_default": true,
+    "max_retry_count": 3,
+    "retry_delay_seconds": 5,
+    "popup_on_failure": true,
+    "skip_failed_after_retries": true
+  }
+}
