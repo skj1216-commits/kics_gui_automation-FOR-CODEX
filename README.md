@@ -96,10 +96,10 @@ python kics_gui_automation.py
 예를 들어 아래 표현은 모두 같은 사용자 ID 후보로 처리할 수 있습니다.
 
 ```text
-아이디: giwoo1432
-사용자 ID giwoo1432
-계정명: giwoo1432
-KICS ID : giwoo1432
+아이디: 1432
+사용자 ID 1432
+계정명: 1432
+KICS ID : 1432
 ```
 
 권한명은 `permission_map`의 키와 `permission_aliases`를 함께 봅니다.
